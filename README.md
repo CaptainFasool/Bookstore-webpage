@@ -1,2 +1,2 @@
 # Bookstore-webpage
-Bookstore webpage implemented using Flask and HTML/CSS.
+Bookstore webpage implemented using Flask, dynamic pages and HTML/CSS.
