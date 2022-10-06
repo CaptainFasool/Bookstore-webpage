@@ -1,0 +1,45 @@
+{# extends 'register.html' #}  <!-- this tempalte displays the login interface for the user to input their credentials in a form and validate their logins -->
+{# block content #}
+
+<html>
+    
+
+<div class =  "content-section">
+    <form method = "POST" action = "">
+        {{ page_form.hidden_tag() }} <!-- The placeholder references the form instance I wrote in python from the login function, and the hidden_tag() method implements CSRF protection  -->
+        <fieldset class="form-group">
+            <legend class = "border-bottom mb-4"> <!-- This is the label for the fieldset, which tells the user they're on the login page -->
+                Login
+            </legend>
+            <div class="form-group">
+                {{ page_form.password.label(class="form-control-label") }}
+                {% if page_form.password.errors %}  
+                    {{ page_form.password(class = "form-control form-control-lg is-in") }}
+                    <div class = "invalid-feedback">
+                        {% for error in page_form.password.errors %} <!-- this for loop in the code block is triggered at the condition there's an valiadtion error, picked up by the if statement in line 12 -->
+                        <span> {{ error }} </span> <!-- for each validation error in the form, the error will be displayed to the user -->
+                        {% endfor %}
+                    </div>
+                {% else %} <!-- if no error is detected by the conditional in line 12, then return the valid feedback form -->
+                    {{ page_form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class = "form-check"> <!-- This generates the form for the 'remember me' option with the proper UI enhancements set by the bootstrap element addition, with the appropriate label in line 14, and the form in line -->
+                {{ page_form.remember(class="form-check-input") }}
+                {{ page_form.remember.label(class="form-check-label") }}
+            </div>
+            
+        </fieldset>
+        <div class = "form-group">
+            {{ page_form.submit(class = "btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+<div class= "border-top pt-3">
+    <small class = "text-muted"> 
+        Need to register for an account? <a class="ml-2" href="{{ url_for('register') }}"> </a> <!-- this displays a subtle query that asks if the user doesn't have an account, to which they're redirected to the referenced link (by pointing to the register function) for the register template if they click the query -->
+    </small>
+</div>
+
+</html>
+{% endblock content %}

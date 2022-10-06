@@ -1,0 +1,42 @@
+{# extends 'register.html' #}
+{# block content #}
+
+<html>
+    
+<form action="{{url_for('addBook')}}" method="POST" enctype="multipart/form-data"> <!-- the form refers back to the flask URL which the addBook function belongs to, and the method is specified to be POST, which is requesting data to be sent to a server -->
+        <div class="row">
+            <div class="col-sm1">
+                {{form.bookName.label}}
+                {{form.bookName}}
+
+                {{form.bookAuthor.label}}
+                {{form.bookAuthor}}
+            </div>
+        </div> <!-- the grouped div here will display all the forms for the book information, referenced from the AddBookForm instance -->
+            {{form.bookDes.label}}
+            {{form.bookDes (class="form-control")}}
+
+            {{form.bookCover.label}}
+            {{form.bookCover}}
+    
+            {{form.bookISBN.label (class="form-label")}}
+            {{form.bookISBN}}
+
+            {{form.bookPubDate.label}}
+            {{form.bookPubDate(class='datepicker')}}
+
+            {{form.bookTradePrice.label}}:0
+            {{form.bookTradePrice(min=0, max=100, step="1", value="0")}}
+
+            {{form.bookRetailPrice.label}}:0
+            {{form.bookRetailPrice(min=0, max=100, step="1", value="0")}}
+
+            {{form.bookQuantity.label}}:0
+            {{form.bookQuantity(min=0, max=20, step="1", value="0")}}
+
+            {{form.addBook()}}
+        </form>
+
+</html>
+
+{% endblock content %}

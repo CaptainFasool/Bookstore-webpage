@@ -1,0 +1,26 @@
+<html>
+    
+    
+  <body>
+
+   <table border = 1>
+       
+     <thead>
+      <td>Name</td>
+      <td>Student ID</td>
+     </thead>
+
+     {% for row in rows %}
+      <tr>
+       <td>{{row["Name"]}}</td> 
+       <td>{{row['ID']}}</td> {# We are evaluating the name of the Name and ID columns #}
+     </tr>
+    {% endfor %}
+     
+ </table>
+
+    
+ </body>
+    
+    
+</html>

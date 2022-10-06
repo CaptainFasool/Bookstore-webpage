@@ -1,0 +1,34 @@
+html lang="en">  <!-- this tempalte displays the register interface for the user to input their credentials in a form -->
+
+    
+<div class = "content-section"> 
+    <form method = "POST" action "">
+        {{ page_form.hidden_tag() }} <!-- The placeholder references the form instance I wrote in python from the register function, and the hidden_tag() method implements CSRF protection  -->
+        <fieldset class = "form-group"> <!-- this groups forms together and uses a CSS bootstrap element for enhanced UX -->
+            <legend class = "border-bottom mb-4"> Register Here </legend> <!-- this defines a caption for the fieldset tag, which in this case tells the user this is the registration page -->
+            <div class = "form-group"> <!-- This generates the form for the username with the proper UI enhancements set by the bootstrap element addition, with the appropriate label in line 10, and the form in line 11 -->
+                {{ page_form.username.label(class = "form-control-label") }}
+                {{ page_form.username.label(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group"> <!-- This generates the form for the password with the proper UI enhancements set by the bootstrap element addition, with the appropriate label in line 14, and the form in line 15 -->
+                {{ page_form.password.label(class = "form-control-label") }}
+                {{ page_form.password.label(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">  <!-- This generates the form for the confirm password with the proper UI enhancements set by the bootstrap element addition, with the appropriate label in line 18, and the form in line 19 -->
+                {{ page_form.confirm_password.label(class = "form-control-label") }}
+                {{ page_form.confirm_password.label(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">  <!-- This generates the form for the remember me option with the proper UI enhancements set by the bootstrap element addition, with the appropriate label in line 22, and the form in line 23 -->
+                {{ page_form.remember.label(class = "form-control-label") }}
+                {{ page_form.remember.label(class = "form-control form-control-lg") }}
+            </div>
+        </fieldset>
+        <div class = "form-group">
+            {{ page_form.submit.label(class = "btn btn-outline-info") }} <!-- For the submit form, we use a button which is derived from the bootstrap element that i specified in class -->
+        </div>
+                  
+    </form>
+    </div>
+
+    
+</html>

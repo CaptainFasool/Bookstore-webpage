@@ -1,0 +1,37 @@
+<html>
+    
+<form action="{{url_for('addBook')}}" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-sm1">
+                {{form.bookName.label}}
+                {{form.bookName}}
+
+                {{form.bookAuthor.label}}
+                {{form.bookAuthor}}
+            </div>
+        </div>
+            {{form.bookDes.label}}
+            {{form.bookDes (class="form-control")}}
+
+            {{form.bookCover.label}}
+            {{form.bookCover}}
+    
+            {{form.bookISBN.label (class="form-label")}}
+            {{form.bookISBN}}
+
+            {{form.bookPubDate.label}}
+            {{form.bookPubDate(class='datepicker')}}
+
+            {{form.bookTradePrice.label}}:0
+            {{form.bookTradePrice(min=0, max=100, step="1", value="0")}}100
+
+            {{form.bookRetailPrice.label}}:0
+            {{form.bookRetailPrice(min=0, max=100, step="1", value="0")}}100
+
+            {{form.bookQuantity.label}}:0
+            {{form.bookQuantity(min=0, max=20, step="1", value="0")}}20
+
+            {{form.addBook()}}
+        </form>
+
+</html>
